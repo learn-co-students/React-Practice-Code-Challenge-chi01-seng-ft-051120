@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 const Sushi = (props) => {
   const {id, img_url, name, price} = props.sushi
@@ -6,7 +6,7 @@ const Sushi = (props) => {
     <div className="sushi">
       <div className="plate" 
            onClick={() => props.eatThisSushi(id, price)}>
-        { props.sushiEaten.includes(id) === true ?
+        { !props.sushiEaten.includes(id) === false ?
             null
           :
             <img src={img_url} alt={name} width="100%" />

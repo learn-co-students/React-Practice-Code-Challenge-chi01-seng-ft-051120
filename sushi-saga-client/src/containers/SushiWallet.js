@@ -15,12 +15,17 @@ class SushiWallet extends Component {
             money: input
         })
     }
+
+    handleSubmit = event => {
+        event.preventDefault();
+        this.props.addMoney(this.state.money)
+    }
     
     render() { 
         return (
         <div className="sushi-wallet">
             <h2>Add money here!</h2>
-            <form onSubmit={this.props.addMoney}>
+            <form onSubmit={this.handleSubmit}>
                 <label>How much would you like to add?</label>
                 <input type="text" name="funds" value={this.state.money} onChange={this.handleInput} />
                 <input type="submit" />

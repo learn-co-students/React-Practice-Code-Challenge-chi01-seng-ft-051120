@@ -58,13 +58,14 @@ class App extends Component {
       })}
   }
 
-  addMoney = event => {
-    event.preventDefault();
-    const newBudget = this.state.remainingBudget + parseInt(event.target.funds.value, 10)
-    if (isNaN(newBudget) === false) {
-    this.setState({
-      remainingBudget: newBudget
-    })}
+  addMoney = money => {
+    const moneyInt = parseInt(money, 10)
+    if (moneyInt > 0) {
+    const newBudget = this.state.remainingBudget + moneyInt
+      if (isNaN(newBudget) === false) {
+      this.setState({
+        remainingBudget: newBudget
+      })}}
   }
 
   render() {
